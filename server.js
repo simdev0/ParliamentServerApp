@@ -10,6 +10,8 @@ var corsOptions = {
     optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204 
 }
 
+const PORT = process.env.PORT || 3000;
+
 app.use(cors(corsOptions))
 
 
@@ -21,7 +23,7 @@ app.get('/api/committee/address/:address_id', db.getCommitteeAddress)
 app.get('/api/committee/members/:committee_id', db.getCommitteeMembers)
 app.get('/api/committee/documents/:committee_id', db.getCommitteeDocuments)
 
-app.listen(8000, () => {
+app.listen(PORT, () => {
     console.log('Server started!')
 })
 
