@@ -10,7 +10,6 @@ var corsOptions = {
     optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204 
 }
 
-const PORT = process.env.PORT || 3000;
 
 app.use(cors(corsOptions))
 
@@ -23,7 +22,9 @@ app.get('/api/committee/address/:address_id', db.getCommitteeAddress)
 app.get('/api/committee/members/:committee_id', db.getCommitteeMembers)
 app.get('/api/committee/documents/:committee_id', db.getCommitteeDocuments)
 
-app.listen(PORT, () => {
-    console.log('Server started!')
-})
-
+var http = require('http');
+var port = process.env.port || 1337;
+http.createServer(function(req, res){
+    res.writeHead(200, {'Content-Type':'text/plain'});
+    res.end('Hello World\n');
+}).listen(port);
