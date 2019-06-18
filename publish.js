@@ -5,7 +5,7 @@ var request = require('request');
 
 // We are using your web app name in various places,
 // so please change it here!!!
-var myWebAppName = "jannennodeapp"; 
+var myWebAppName = "testserverapp"; 
 
 // These are for creating the zip file to upload. No need to change.
 var rootFolder = path.resolve('.');
@@ -23,7 +23,7 @@ var kuduApi = 'https://'+myWebAppName+'.scm.azurewebsites.net/api/zip/site/wwwro
 var userName = '$'+myWebAppName;
 
 // Paste the key here to replace the xxxxxxx's!
-var userPWD = 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx';
+var userPWD = 'BdYTWw5GqsBx2XzJvvAXoAisXLloNridfbgomwpiEbotNbNuCu1C5Ny6apjQ';
 
 function uploadZip(callback) {
   fs.createReadStream(zipPath).pipe(request.put(kuduApi, {
